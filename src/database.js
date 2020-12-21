@@ -1,14 +1,16 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from 'mongoose';
 
 class Database{
   constructor(){
     this.init();
-
   }
 
   init(){
-    mongoose.connect('mongodb://localhost:27017/user', 
-    { useNewUrlParser: true, useUnifiedTopology: true }
+    mongoose.set('useCreateIndex', true)
+
+    mongoose.connect('mongodb://localhost/user',
+      { useNewUrlParser: true, useUnifiedTopology: true },
+      console.log('MongoDB connected')
     );
   }
 }
