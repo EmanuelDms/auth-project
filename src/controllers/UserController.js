@@ -10,7 +10,7 @@ class UserController {
       name, email, password
     });
 
-    return res.json(user);
+    return res.json({user:user.show()});
   }
 
 }
