@@ -21,6 +21,11 @@ class AuthController{
         .json({error: txt})
     }
 
+    // Verifies a deleted user
+    if(user.deleted === true){
+      return res.status(401).json({ error: 'Disabled User'})    
+    }
+
     // Compares req.body password matches with database user password
     const checkPassword = await bcryptjs.compare(password, user.password);
 
